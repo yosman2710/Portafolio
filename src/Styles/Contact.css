@@ -1,0 +1,981 @@
+:root {
+    --primary: #06b6d4;
+    --accent: #ec4899;
+    --foreground: #111827;
+    --background: #f8fafc;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --muted-foreground: #64748b;
+    --border: rgba(148, 163, 184, 0.2);
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+.contactSection {
+    min-height: 100vh;
+    padding: 8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+.gradientTop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10rem;
+    background: linear-gradient(to bottom, var(--background), transparent);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Background Blobs */
+.backgroundBlob1 {
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    width: 28.125rem;
+    height: 28.125rem;
+    background: var(--primary);
+    border-radius: 9999px;
+    filter: blur(4rem);
+    opacity: 0.12;
+    animation: float 8s ease-in-out infinite;
+}
+
+.backgroundBlob2 {
+    position: absolute;
+    bottom: 25%;
+    right: 5%;
+    width: 34.375rem;
+    height: 34.375rem;
+    background: var(--accent);
+    border-radius: 9999px;
+    filter: blur(4rem);
+    opacity: 0.12;
+    animation: float 8s ease-in-out infinite reverse 4s;
+}
+
+.backgroundPulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 43.75rem;
+    height: 43.75rem;
+    background: rgba(6, 182, 212, 0.2);
+    border-radius: 9999px;
+    filter: blur(4rem);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    33% {
+        transform: translateY(-2rem) rotate(120deg);
+    }
+
+    66% {
+        transform: translateY(1rem) rotate(240deg);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(1) translate(-50%, -50%);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(1.05) translate(-50%, -50%);
+    }
+}
+
+/* Hexagon Pattern */
+.hexagonPattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #00d4ff, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(236, 72, 153, 0.5), transparent),
+        radial-gradient(1px 1px at 90px 40px, #06b6d4, transparent);
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    animation: drift 20s linear infinite;
+}
+
+@keyframes drift {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(100px, 100px);
+    }
+}
+
+/* Sparkles */
+.sparkles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.sparkles::before,
+.sparkles::after {
+    content: '';
+    position: absolute;
+    width: 0.25rem;
+    height: 0.25rem;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: sparkleFloat 12s infinite linear;
+    box-shadow: 0 0 8px var(--primary);
+}
+
+.sparkles::after {
+    animation-delay: -6s;
+    animation-duration: 16s;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+}
+
+@keyframes sparkleFloat {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.container {
+    max-width: 76rem;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 6rem;
+    opacity: 0;
+    animation: fadeInUp 1s 0.2s forwards;
+}
+
+.sectionHeader span {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--primary);
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    padding: 0.5rem 1.5rem;
+    background: rgba(6, 182, 212, 0.1);
+    border-radius: 2rem;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.sectionHeader h2 {
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #1e293b, #334155);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.divider {
+    width: 5rem;
+    height: 0.25rem;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    margin: 0 auto;
+    border-radius: 9999px;
+    box-shadow: 0 0 12px rgba(6, 182, 212, 0.4);
+}
+
+.cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+.contactCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    padding: 2.5rem 2rem;
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 1.5rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 40px var(--shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contactCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s;
+}
+
+.contactCard:hover::before {
+    left: 100%;
+}
+
+.contactCard:hover {
+    transform: translateY(-1rem) scale(1.02);
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.25),
+        0 0 30px rgba(6, 182, 212, 0.3);
+    border-color: rgba(6, 182, 212, 0.3);
+}
+
+.iconContainer {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 0.75rem;
+    background: rgba(6, 182, 212, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    transition: all 0.4s ease;
+}
+
+.contactCard:hover .iconContainer {
+    background: var(--primary);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.6);
+}
+
+.contactIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--primary);
+}
+
+.contactCard:hover .contactIcon {
+    color: white;
+}
+
+.contactCard h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.contactCard:hover h3 {
+    color: var(--foreground);
+}
+
+.contactCard p {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--foreground);
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.ctaButtonWrapper {
+    opacity: 0;
+    animation: fadeInUp 1s 0.5s forwards;
+    display: flex;
+    justify-content: center;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem 3rem;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    border-radius: 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow:
+        0 10px 30px rgba(6, 182, 212, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.ctaButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+}
+
+.ctaButton:hover::before {
+    left: 100%;
+}
+
+.ctaButton:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+        0 20px 50px rgba(6, 182, 212, 0.6),
+        0 0 40px rgba(236, 72, 153, 0.4);
+}
+
+.ctaButton:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+.arrowIcon {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.ctaButton:hover .arrowIcon {
+    transform: translateX(0.25rem);
+}
+
+/* Animaciones de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cardAnim0 {
+    animation: fadeInUp 0.8s 0.1s forwards;
+}
+
+.cardAnim1 {
+    animation: fadeInUp 0.8s 0.2s forwards;
+}
+
+.cardAnim2 {
+    animation: fadeInUp 0.8s 0.3s forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contactSection {
+        padding: 6rem 1rem;
+        text-align: center;
+    }
+
+    .cardsGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .sectionHeader h2 {
+        font-size: 2.5rem;
+    }
+
+    .ctaButton {
+        padding: 1.25rem 2.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contactCard {
+        padding: 2rem 1.5rem;
+    }
+
+    .iconContainer {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .contactIcon {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+}
+
+:root {
+    --primary: #06b6d4;
+    --accent: #ec4899;
+    --foreground: #111827;
+    --background: #f8fafc;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --muted-foreground: #64748b;
+    --border: rgba(148, 163, 184, 0.2);
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+.contactSection {
+    min-height: 100vh;
+    padding: 8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+.gradientTop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10rem;
+    background: linear-gradient(to bottom, var(--background), transparent);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Background Blobs */
+.backgroundBlob1 {
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    width: 28.125rem;
+    height: 28.125rem;
+    background: var(--primary);
+    border-radius: 9999px;
+    filter: blur(4rem);
+    opacity: 0.12;
+    animation: float 8s ease-in-out infinite;
+}
+
+.backgroundBlob2 {
+    position: absolute;
+    bottom: 25%;
+    right: 5%;
+    width: 34.375rem;
+    height: 34.375rem;
+    background: var(--accent);
+    border-radius: 9999px;
+    filter: blur(4rem);
+    opacity: 0.12;
+    animation: float 8s ease-in-out infinite reverse 4s;
+}
+
+.backgroundPulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 43.75rem;
+    height: 43.75rem;
+    background: rgba(6, 182, 212, 0.2);
+    border-radius: 9999px;
+    filter: blur(4rem);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    33% {
+        transform: translateY(-2rem) rotate(120deg);
+    }
+
+    66% {
+        transform: translateY(1rem) rotate(240deg);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(1) translate(-50%, -50%);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(1.05) translate(-50%, -50%);
+    }
+}
+
+/* Hexagon Pattern */
+.hexagonPattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #00d4ff, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(236, 72, 153, 0.5), transparent),
+        radial-gradient(1px 1px at 90px 40px, #06b6d4, transparent);
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    animation: drift 20s linear infinite;
+}
+
+@keyframes drift {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(100px, 100px);
+    }
+}
+
+/* Sparkles */
+.sparkles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.sparkles::before,
+.sparkles::after {
+    content: '';
+    position: absolute;
+    width: 0.25rem;
+    height: 0.25rem;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: sparkleFloat 12s infinite linear;
+    box-shadow: 0 0 8px var(--primary);
+}
+
+.sparkles::after {
+    animation-delay: -6s;
+    animation-duration: 16s;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+}
+
+@keyframes sparkleFloat {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.container {
+    max-width: 76rem;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 6rem;
+    opacity: 0;
+    animation: fadeInUp 1s 0.2s forwards;
+}
+
+.sectionHeader span {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--primary);
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    padding: 0.5rem 1.5rem;
+    background: rgba(6, 182, 212, 0.1);
+    border-radius: 2rem;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.sectionHeader h2 {
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #1e293b, #334155);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.divider {
+    width: 5rem;
+    height: 0.25rem;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    margin: 0 auto;
+    border-radius: 9999px;
+    box-shadow: 0 0 12px rgba(6, 182, 212, 0.4);
+}
+
+.cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+.contactCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    padding: 2.5rem 2rem;
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 1.5rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 40px var(--shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contactCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s;
+}
+
+.contactCard:hover::before {
+    left: 100%;
+}
+
+.contactCard:hover {
+    transform: translateY(-1rem) scale(1.02);
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.25),
+        0 0 30px rgba(6, 182, 212, 0.3);
+    border-color: rgba(6, 182, 212, 0.3);
+}
+
+.iconContainer {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 0.75rem;
+    background: rgba(6, 182, 212, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    transition: all 0.4s ease;
+}
+
+.contactCard:hover .iconContainer {
+    background: var(--primary);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.6);
+}
+
+.contactIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--primary);
+}
+
+.contactCard:hover .contactIcon {
+    color: white;
+}
+
+.contactCard h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.contactCard:hover h3 {
+    color: var(--foreground);
+}
+
+.contactCard p {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--foreground);
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.ctaButtonWrapper {
+    opacity: 0;
+    animation: fadeInUp 1s 0.5s forwards;
+    display: flex;
+    justify-content: center;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem 3rem;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    border-radius: 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow:
+        0 10px 30px rgba(6, 182, 212, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.ctaButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+}
+
+.ctaButton:hover::before {
+    left: 100%;
+}
+
+.ctaButton:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+        0 20px 50px rgba(6, 182, 212, 0.6),
+        0 0 40px rgba(236, 72, 153, 0.4);
+}
+
+.ctaButton:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+.arrowIcon {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.ctaButton:hover .arrowIcon {
+    transform: translateX(0.25rem);
+}
+
+/* Animaciones de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cardAnim0 {
+    animation: fadeInUp 0.8s 0.1s forwards;
+}
+
+.cardAnim1 {
+    animation: fadeInUp 0.8s 0.2s forwards;
+}
+
+.cardAnim2 {
+    animation: fadeInUp 0.8s 0.3s forwards;
+}
+
+/* Contact Content Layout */
+.contactContent {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.cardsGrid {
+    margin-bottom: 0;
+}
+
+/* Contact Form */
+.contactForm {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 1.5rem;
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    box-shadow: 0 10px 40px var(--shadow);
+    animation: fadeInUp 1s 0.4s forwards;
+    opacity: 0;
+}
+
+.formGroup {
+    margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    margin-bottom: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.formInput,
+.formTextarea {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid transparent;
+    color: var(--foreground);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.formTextarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1);
+}
+
+.submitButton {
+    width: 100%;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .contactContent {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .cardsGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .contactSection {
+        padding: 6rem 1rem;
+        text-align: center;
+    }
+
+    .contactContent {
+        gap: 2rem;
+    }
+
+    .cardsGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .sectionHeader h2 {
+        font-size: 2.5rem;
+    }
+
+    .ctaButton {
+        padding: 1.25rem 2.5rem;
+        font-size: 1rem;
+    }
+
+    .contactForm {
+        padding: 1.5rem;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .contactCard {
+        padding: 2rem 1.5rem;
+    }
+
+    .iconContainer {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .contactIcon {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+}
