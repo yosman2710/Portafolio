@@ -3,7 +3,7 @@
     padding: 8rem 1.5rem;
     position: relative;
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: var(--background);
     /* Fallback */
     background-color: var(--background, #ffffff);
 }
@@ -14,7 +14,7 @@
     left: 2.5rem;
     width: 24rem;
     height: 24rem;
-    background: #06b6d4;
+    background: var(--primary);
     /* Fallback */
     background: var(--primary, #06b6d4);
     border-radius: 9999px;
@@ -29,7 +29,7 @@
     right: 2.5rem;
     width: 31.25rem;
     height: 31.25rem;
-    background: #ec4899;
+    background: var(--accent);
     /* Fallback */
     background: var(--accent, #ec4899);
     border-radius: 9999px;
@@ -43,8 +43,8 @@
     inset: 0;
     opacity: 0.05;
     background-image:
-        linear-gradient(hsl(195 90% 55% / 0.3) 1px, transparent 1px),
-        linear-gradient(90deg, hsl(195 90% 55% / 0.3) 1px, transparent 1px);
+        linear-gradient(var(--primary) 1px, transparent 1px),
+        linear-gradient(90deg, var(--primary) 1px, transparent 1px);
     background-size: 3.125rem 3.125rem;
 }
 
@@ -95,7 +95,7 @@
     display: inline-block;
     font-size: 0.875rem;
     font-weight: 600;
-    color: #3b82f6;
+    color: var(--primary);
     letter-spacing: 0.1em;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
@@ -105,7 +105,7 @@
     font-size: clamp(3rem, 8vw, 4.5rem);
     font-weight: 800;
     /* Use dark text to match Hero light theme, OR variables */
-    background: linear-gradient(135deg, #0f172a, #334155);
+    background: linear-gradient(135deg, var(--foreground), var(--muted-foreground));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -116,7 +116,7 @@
 .divider {
     width: 5rem;
     height: 0.25rem;
-    background: linear-gradient(90deg, #3b82f6, #ec4899);
+    background: linear-gradient(90deg, var(--primary), var(--accent));
     margin: 0 auto;
     border-radius: 9999px;
 }
@@ -264,8 +264,6 @@
     /* Prevent drag image issues */
 }
 
-
-
 /* Navegación */
 .carouselNav {
     position: absolute;
@@ -385,7 +383,7 @@
 .projectHeader h3 {
     font-size: 1.25rem;
     font-weight: 700;
-    color: rgb(0, 0, 0);
+    color: var(--foreground);
     margin: 0;
 }
 
@@ -399,7 +397,7 @@
 }
 
 .projectInfo p {
-    color: #000000;
+    color: var(--muted-foreground);
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1.25rem;

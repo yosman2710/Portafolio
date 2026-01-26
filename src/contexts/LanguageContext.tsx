@@ -18,11 +18,15 @@ interface Translations {
     about: {
         sectionLabel: string;
         title: string;
-        years: string;
-        projectsLabel: string;
-        clients: string;
+        studentBadge: string;
         description1: string;
-        description2: string;
+        languages: string;
+        frameworks: string;
+        tools: string;
+        libraries: string;
+        database: string;
+        learningTitle: string;
+        learningDescription: string;
     };
     projects: {
         sectionLabel: string;
@@ -48,18 +52,22 @@ const translations: Record<Language, Translations> = {
             contact: "Contacto",
         },
         hero: {
-            badge: "Desarrollador Full Stack",
+            badge: "Desarrollador Backend",
             projects: "Proyectos",
             contact: "Contacto",
         },
         about: {
             sectionLabel: "Sobre Mí",
             title: "Acerca",
-            years: "Años",
-            projectsLabel: "Proyectos",
-            clients: "Clientes",
-            description1: "Desarrollador Full Stack especializado en el ecosistema JavaScript/TypeScript.",
-            description2: "Transformo ideas en productos digitales funcionales con código limpio y escalable.",
+            studentBadge: "Estudiante de Ingeniería Informática",
+            description1: "Soy un estudiante apasionado por el desarrollo de software, enfocado en crear soluciones web y móviles modernas. Me encanta aprender nuevas tecnologías y aplicarlas en proyectos reales.",
+            languages: "Lenguajes",
+            frameworks: "Frameworks",
+            tools: "Herramientas",
+            libraries: "Librerías",
+            database: "Base de Datos",
+            learningTitle: "Siempre Aprendiendo",
+            learningDescription: "Como estudiante, estoy constantemente explorando nuevas tecnologías y mejorando mis habilidades. Cada proyecto es una oportunidad para crecer y desarrollar soluciones innovadoras.",
         },
         projects: {
             sectionLabel: "Portfolio",
@@ -83,18 +91,22 @@ const translations: Record<Language, Translations> = {
             contact: "Contact",
         },
         hero: {
-            badge: "Full Stack Developer",
+            badge: "Backend Developer",
             projects: "Projects",
             contact: "Contact",
         },
         about: {
             sectionLabel: "About Me",
             title: "About",
-            years: "Years",
-            projectsLabel: "Projects",
-            clients: "Clients",
-            description1: "Full Stack Developer specialized in the JavaScript/TypeScript ecosystem.",
-            description2: "I transform ideas into functional digital products with clean and scalable code.",
+            studentBadge: "Computer Engineering Student",
+            description1: "I'm a passionate student focused on software development, creating modern web and mobile solutions. I love learning new technologies and applying them in real projects.",
+            languages: "Languages",
+            frameworks: "Frameworks",
+            tools: "Tools",
+            libraries: "Libraries",
+            database: "Databases",
+            learningTitle: "Always Learning",
+            learningDescription: "As a student, I'm constantly exploring new technologies and improving my skills. Every project is an opportunity to grow and develop innovative solutions.",
         },
         projects: {
             sectionLabel: "Portfolio",

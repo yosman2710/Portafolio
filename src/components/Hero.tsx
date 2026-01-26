@@ -16,9 +16,9 @@ const skills = [
     { name: "Node.js", icon: Server, color: "green" },
     { name: "Database", icon: Database, color: "orange" },
     { name: "UI/UX", icon: Palette, color: "pink" },
-    { name: "Web", icon: Globe, color: "blue" },
-    { name: "API", icon: Zap, color: "yellow" },
-    { name: "CLI", icon: Terminal, color: "gray" },
+    { name: "Web", icon: Globe, color: "gray" },
+    { name: "API REST", icon: Zap, color: "yellow" },
+    { name: "Python", icon: Terminal, color: "blue" },
 ];
 
 const Hero: React.FC = () => {
@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
     }, []);
 
     return (
-        <section className="heroSection">
+        <section id="inicio" className="heroSection">
             {/* Animated background blobs */}
             <div
                 className="backgroundBlob1"
@@ -96,12 +96,8 @@ const Hero: React.FC = () => {
                     </div>
 
                     <div className="subtitleContainer">
-                        <p>Full Stack Developer & Mobile App Specialist</p>
-                        <div className="techTags">
-                            <span>React</span>
-                            <span>Node.js</span>
-                            <span>TypeScript</span>
-                        </div>
+                        <p>Backend Developer & Mobile App Specialist</p>
+
                     </div>
 
                     <div className="actionButtons">
