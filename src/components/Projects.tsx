@@ -4,6 +4,17 @@ import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import fastfood1 from "../assets/fastfood1.jpeg";
 import fastfood2 from "../assets/fastfood2.jpeg";
+import fastfood3 from "../assets/fastfood3.jpeg";
+import fastfood4 from "../assets/fastfood4.jpeg";
+import Balanzen1 from "../assets/balanzen1.jpeg";
+import Balanzen2 from "../assets/balanzen2.jpeg";
+import Balanzen3 from "../assets/balanzen3.jpeg";
+import Balanzen4 from "../assets/balanzen4.jpeg";
+import prestazo1 from "../assets/prestazo1.jpeg";
+import prestazo2 from "../assets/prestazo2.jpeg";
+import prestazo3 from "../assets/prestazo3.jpeg";
+import prestazo4 from "../assets/prestazo4.jpeg";
+
 
 import "../Styles/projects.css";
 
@@ -30,27 +41,27 @@ const Projects = () => {
             description: language === "es"
                 ? "Aplicacion Movil para el registro de pedidos, sistema para llevar el control de los pagos y abonos, control de los platillos y precios en las monedas bolivar y dolar."
                 : "Mobile application for order registration, payment and collection control system, menu control and prices in bolivars and dollars.",
-            tech: ["React Native", "Supabase", "PostgreSQL"],
+            tech: ["React Native", "Supabase", "PostgreSQL", "javascript"],
             type: "fullstack",
-            screenshots: [fastfood1, fastfood2]
+            screenshots: [fastfood1, fastfood2, fastfood3, fastfood4]
         },
         {
-            title: "Fastfood La Negra 2",
+            title: "Balanzen",
+            description: language === "es"
+                ? "Transforma tu relación con el dinero. Balanzen te permite registrar gastos, crear presupuestos personalizados y dar seguimiento a tus metas de ahorro, todo en una interfaz moderna y segura. Toma el control total de tu futuro financiero hoy mismo."
+                : "Transform your relationship with money. Balanzen allows you to track expenses, create personalized budgets, and monitor your savings goals, all in a modern and secure interface. Take full control of your financial future today.",
+            tech: ["React Native", "Supabase", "PostgreSQL", "javascript"],
+            type: "fullstack",
+            screenshots: [Balanzen1, Balanzen2, Balanzen3, Balanzen4]
+        },
+        {
+            title: "Prestazo",
             description: language === "es"
                 ? "Aplicacion Movil para el registro de pedidos, sistema para llevar el control de los pagos y abonos, control de los platillos y precios en las monedas bolivar y dolar."
                 : "Mobile application for order registration, payment and collection control system, menu control and prices in bolivars and dollars.",
-            tech: ["React Native", "Supabase"],
-            type: "mobile",
-            screenshots: [fastfood1, fastfood2]
-        },
-        {
-            title: "Fastfood La Negra 3",
-            description: language === "es"
-                ? "Aplicacion Movil para el registro de pedidos, sistema para llevar el control de los pagos y abonos, control de los platillos y precios en las monedas bolivar y dolar."
-                : "Mobile application for order registration, payment and collection control system, menu control and prices in bolivars and dollars.",
-            tech: ["React Native"],
-            type: "frontend",
-            screenshots: [fastfood1, fastfood2]
+            tech: ["React Native", "Supabase", "PostgreSQL", "javascript"],
+            type: "fullstack",
+            screenshots: [prestazo1, prestazo2, prestazo3, prestazo4]
         },
     ];
 
