@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Image from "next/image";
 import fastfood1 from "../assets/fastfood1.jpeg";
 import fastfood2 from "../assets/fastfood2.jpeg";
 import fastfood3 from "../assets/fastfood3.jpeg";
@@ -86,10 +87,13 @@ const Projects = () => {
         }
     ];
 
-    // Initialize active slides state
+    // Initialize active slides state once
     useEffect(() => {
-        setActiveSlides(new Array(projects.length).fill(0));
-    }, [projects.length]);
+        if (activeSlides.length === 0) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
+            setActiveSlides(new Array(projects.length).fill(0));
+        }
+    }, [projects.length, activeSlides.length]);
 
     const handleScroll = (index: number) => {
         const container = scrollRefs.current[index];
@@ -155,7 +159,6 @@ const Projects = () => {
                     />
                 ))}
             </div>
-
             <div className="container">
                 <div className="sectionHeader">
                     <span>{t.projects?.sectionLabel || "Portfolio"}</span>
@@ -181,10 +184,13 @@ const Projects = () => {
                                                 key={screenshotIndex}
                                                 className={`carouselSlide`}
                                             >
-                                                <img
+                                                <Image
                                                     src={screenshot.src as string}
                                                     alt={`${project.title} screenshot ${screenshotIndex + 1}`}
                                                     loading="lazy"
+                                                    width={400}
+                                                    height={800}
+                                                    className="projectScreenshot"
                                                 />
                                             </div>
                                         ))}

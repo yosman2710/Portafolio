@@ -11,23 +11,28 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    // Default to light, but we'll check system/localStorage in useEffect
     const [theme, setTheme] = useState<Theme>("light");
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
-        // Check localStorage first
+    }, []);
+
+    useEffect(() => {
+        if (!mounted) return;
+
         const savedTheme = localStorage.getItem("theme") as Theme;
         if (savedTheme) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setTheme(savedTheme);
             document.documentElement.setAttribute("data-theme", savedTheme);
         } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            // Check system preference
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setTheme("dark");
             document.documentElement.setAttribute("data-theme", "dark");
         }
-    }, []);
+    }, [mounted]);
 
     useEffect(() => {
         if (mounted) {
@@ -42,7 +47,9 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            {children}
+            <div style={{ visibility: mounted ? 'visible' : 'hidden' }}>
+                {children}
+            </div>
         </ThemeContext.Provider>
     );
 };
