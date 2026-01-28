@@ -77,7 +77,7 @@ const Hero: React.FC = () => {
                             <div className="photoRing1" />
                             <div className="photoRing2" />
                             <div className="photoPlaceholder">
-                                <Image src="/hero.jpeg" alt="Yosman Mavarez" width={150} height={150} />
+                                <Image src="/hero.png" alt="Yosman Mavarez" width={150} height={150} />
                             </div>
                             <div className="statusIndicator" />
                             <Sparkles className="sparkle1" size={24} />
